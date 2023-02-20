@@ -22,3 +22,19 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     clean(args.contact, args.other, args.output)
+
+if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('contact', help='Contact info file (CSV)')
+    parser.add_argument('other', help='Other info file (CSV)')
+    parser.add_argument('output', help='Cleaned data file (CSV)')
+    args = parser.parse_args()
+
+    clean(args.contact, args.other, args.output)
+
+    # New code to commit the changes
+    import subprocess
+    subprocess.run(["git", "add", "respondent_cleaned.csv"])
+    subprocess.run(["git", "commit", "-m", "cleaned data"])
